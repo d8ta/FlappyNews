@@ -1,3 +1,7 @@
-/**
- * Created by danielraudschus on 20.03.15.
- */
+var app = angular.module('flapperNews', []);
+
+app.controller('MainCtrl', [
+    '$scope',
+    function($scope) {
+        $scope.test = 'Hello World!'; // binds to the {{test}} in index.html
+    }])

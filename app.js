@@ -14,6 +14,13 @@ app.controller('MainCtrl', [
 
         //userinput
         $scope.addPost = function() {
-            $scope.posts.push({title: 'A new post!', upvotes: 0});
+            //preventing blank input from the user
+            if (!$scope.title || $scope.title === '')
+            {
+                return;
+            }
+            $scope.posts.push({title: $scope.title, upvotes: 0});
+            //after pushing the scope title (userinput) to posts clear the input
+            $scope.title = '';
         };
     }])

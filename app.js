@@ -4,7 +4,7 @@ app.controller('MainCtrl', [
     '$scope',
     function($scope) {
 
-        $scope.posts = [ // if wanted accessible in the template, bind it with $scope!
+        $scope.posts = [
             {title: 'post 1', upvotes: 5},
             {title: 'post 2', upvotes: 2},
             {title: 'post 3', upvotes: 15},
@@ -19,8 +19,15 @@ app.controller('MainCtrl', [
             {
                 return;
             }
-            $scope.posts.push({title: $scope.title, upvotes: 0});
-            //after pushing the scope title (userinput) to posts clear the input
+            $scope.posts.push({title: $scope.title, link: $scope.link, upvotes: 0});
+            //after pushing title and link (userinput) to posts, clear the input
             $scope.title = '';
+            $scope.link = '';
+
+        };
+
+        //functin to upvote a post
+        $scope.incrementUpvotes = function(post) {
+            post.upvotes ++;
         };
     }])

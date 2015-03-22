@@ -1,0 +1,16 @@
+body {
+    background-color: brown;
+    color: azure;
+}
+
+a:visited {
+    color: darksalmon !important;
+}
+
+a:hover, a:active {
+    color: darksalmon !important;
+}
+
+a {
+    color: darksalmon !important;
+}

@@ -3,14 +3,31 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Flapper News App</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="app.js"></script>
+    <!--styles for bootstrap to show the thumbs-up glyphicon-->
+    <style> .glyphicon-circle-arrow-up { cursor:pointer} </style>
+
 </head>
     <body ng-app="flapperNews" ng-controller="MainCtrl">
 
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+
+
+                <div class="page-header">
+                    <h1>Flapper News</h1>
+                </div>
+
             <!--Posts-->
         <div ng-repeat="post in posts | orderBy: '-upvotes'">
-            <span ng-click="incrementUpvotes(post)">^</span>
+            <span class="glyphicon glyphicon-circle-arrow-up"
+                  ng-click="incrementUpvotes(post)"></span> <!--posts have more space-->
+
+            <span style="font-size: 20px; margin-left: 10px;"></span>
+
             <!--title gets linked to the posted link, so you can click it-->
             <!--show is corresponding to hide... if hide is true than elements get hidden
             if show is true than element gehts shown, and vice versa-->
@@ -25,14 +42,29 @@
         </div>
 
             <!--input form for userinput-->
-        <form ng-submit="addPost()">
-            <input type="text" ng-model="title" placeholder="Titel">
-            <br />
-            <input type="text" ng-model="link" placeholder="Link">
-            <br />
+        <form ng-submit="addPost()" style="margin-top: 30px;">
+            <h3>Add a new Post</h3>
+
+            <div class="form-group">
+                <input type="text"
+                   class="form-control"
+                   ng-model="title"
+                   placeholder="Titel">
+            </div>
+
+            <div class="form-group">
+                <input type="text"
+                   class="form-control"
+                   ng-model="link"
+                   placeholder="Link">
+            </div>
+
             <!--Button for submit, type="submit" uses enterkey to post-->
-            <button type="submit">Post</button>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Post</button>
         </form>
+
+        </div>
+    </div>
 
     </body>
 </html>

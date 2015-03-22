@@ -11,7 +11,17 @@
             <!--Posts-->
         <div ng-repeat="post in posts | orderBy: '-upvotes'">
             <span ng-click="incrementUpvotes(post)">^</span>
-            {{post.title}} - upvotes: {{post.upvotes}}
+            <!--title gets linked to the posted link, so you can click it-->
+            <!--show is corresponding to hide... if hide is true than elements get hidden
+            if show is true than element gehts shown, and vice versa-->
+            <a ng-show="post.link" href="{{post.link}}">
+                {{post.title}}
+            </a>
+            <!--if user post a link ng-hide is true and the element gets hidden-->
+            <span ng-hide="post.link">
+                {{post.title}} <!--Angular expression-->
+            </span>
+            - upvotes: {{post.upvotes}}
         </div>
 
             <!--input form for userinput-->
